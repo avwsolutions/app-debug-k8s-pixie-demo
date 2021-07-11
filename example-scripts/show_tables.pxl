@@ -1,0 +1,4 @@
+import px
+
+output = px.GetSchemas()
+px.display(output)

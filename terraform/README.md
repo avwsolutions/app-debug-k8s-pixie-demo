@@ -44,3 +44,30 @@ kubectl get pods --field-selector status.phase!=Running -A
 ```
 
 You are now ready to deploy some awesome applications to demostrate !
+
+# Testing the oom_killer px script
+
+Open a shell of a running Pod to trigger the OOM Killer. For this we will use the Ubuntu image.
+As you may see we will limit the memory to `123Mi`.
+
+```
+kubectl run --restart=Never --rm -it --image=ubuntu --limits='memory=123Mi' -- sh
+```
+
+To trigger memory usage we are going to use a tool called `stress` . 
+
+```
+apt update
+apt install -y stress
+```
+We are going to run `stress` with a memory load of `100Mi` . Everything should work well.
+
+```
+stress --vm 1 --vm-bytes 100M &
+```
+
+Now start a second `stress` thread to trigger the `OOM Killer`. Now use Pixie to see the PID that was killed.
+
+```
+stress --vm 1 --vm-bytes 50M
+```

@@ -32,3 +32,13 @@ helm repo update
 # install the Pixie chart
 helm install pixie pixie/pixie-chart --set deployKey=<deploy-key-goes-here>
 ```
+
+
+# Check Pixie Platform status
+px get viziers
+# Check PEM stats
+px get pems
+
+cluster name
+namespace to deploy
+

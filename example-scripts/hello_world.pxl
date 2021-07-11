@@ -1,0 +1,20 @@
+import pxtrace
+import px
+
+program = """
+int hello(void *ctx) {
+    bpf_trace_printk("Hello world\\n");
+    return 0;
+}
+"""
+
+def hello_world_func():
+    table_name = 'hello_world'
+    pxtrace.UpsertTracepoint('hello_world',
+                             table_name,
+                             program,
+                             pxtrace.kprobe(),
+                             "10m")
+
+    df = px.DataFrame(table_name)
+    px.display(df)
