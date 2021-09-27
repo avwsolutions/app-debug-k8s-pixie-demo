@@ -2,7 +2,7 @@
 import px 
 
 # Load the last 30 seconds of Pixie's `conn_stats` table into a Dataframe. 
-df = px.DataFrame(table='conn_stats', start_time='-30s')
+df = px.DataFrame(table='conn_stats', start_time='-10s')
 
 # Display the DataFrame with table formatting
 px.display(df)

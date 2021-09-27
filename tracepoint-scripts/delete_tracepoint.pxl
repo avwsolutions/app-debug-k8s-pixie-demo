@@ -1,0 +1,2 @@
+import pxtrace
+pxtrace.DeleteTracepoint('sleepy_snoop_tracer')

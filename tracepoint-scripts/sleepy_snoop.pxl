@@ -1,0 +1,24 @@
+import pxtrace
+import px
+
+# Adapted from https://brendangregg.com 
+
+program = """
+kprobe:do_nanosleep { printf(\"time_:%llu pid:%d comm:%s\", nsecs, pid, comm); }
+"""
+
+def sleepy_snoop_func():
+    table_name = 'sleepy_snoop_table'
+    pxtrace.UpsertTracepoint('sleepy_snoop_tracer',
+                             table_name,
+                             program,
+                             pxtrace.kprobe(),
+                             "10m")
+    df = px.DataFrame(table=table_name)
+
+    return df
+
+output = sleepy_snoop_func();
+
+px.display(output)
+

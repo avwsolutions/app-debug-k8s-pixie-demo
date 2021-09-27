@@ -1,4 +1,8 @@
+# Import Pixie's module for querying data
 import px
 
+# Get all table schemas
 output = px.GetSchemas()
+
+# Display the Schemas of the tables with table formatting 
 px.display(output)
