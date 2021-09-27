@@ -1,3 +1,0 @@
----
-short: Capable
-long: Traces calls to the kernel cap_capable() function, which does security capability checks.

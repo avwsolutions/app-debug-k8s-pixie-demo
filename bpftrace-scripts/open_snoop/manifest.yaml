@@ -1,3 +1,0 @@
----
-short: Open Snoop
-long: Traces the open() syscall system-wide, and prints various details.

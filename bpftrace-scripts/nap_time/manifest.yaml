@@ -1,3 +1,0 @@
----
-short: NAP Time
-long: Tracing application sleeps via the nanosleep(2) syscall.

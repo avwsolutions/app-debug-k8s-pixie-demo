@@ -1,3 +1,0 @@
----
-short: TCP Accepts
-long: Shows the kernel function accepting TCP socket connections.

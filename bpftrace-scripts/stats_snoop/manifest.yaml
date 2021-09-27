@@ -1,3 +1,0 @@
----
-short: Stats Snoops
-long: Traces different stat() syscalls system-wide, and prints details.
